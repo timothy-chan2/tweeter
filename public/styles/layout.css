@@ -29,3 +29,8 @@ body {
   font-family: 'Bungee', sans-serif;
   font-size: 1.8em;
  }
+
+ main {
+   width: 90%;
+   margin: auto;
+ }
