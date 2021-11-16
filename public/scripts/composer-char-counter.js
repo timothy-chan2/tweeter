@@ -8,6 +8,8 @@ $(document).ready(function(){
     $(this).next().children(".counter").text(count);
     if (count < 0) {
       $(this).next().children(".counter").addClass("exceed");
+    } else {
+      $(this).next().children(".counter").removeClass("exceed");
     }
   });
 
