@@ -1,0 +1,66 @@
+.single-tweet, header, .user, .handle, footer {
+  display: flex;
+}
+
+#old-tweets {
+  padding: 2em 0 2em 0;
+}
+
+.single-tweet {
+  flex-direction: column;
+  border: solid 4px;
+  padding: 0.8em 0.5em 0.8em 0.5em;
+}
+
+header {
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 1em 0 0.8em;
+}
+
+.user {
+  align-items: center;
+  font-size: 1.2em;
+}
+
+.handle {
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #4056A1;
+}
+
+.show-tweet {
+  padding: 1em;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+footer {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-top: solid 4px;
+  padding: 0.5em 1em 0 0.8em;
+}
+
+.days-since {
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.tweet-icons {
+  display: inline-flex;
+  gap: 15px;
+  font-size: 0.8em;
+  color: #4056A1;
+}
+
+.single-tweet:hover {
+  box-shadow: 8px 8px #a2a9c9;
+}
+
+.icon:hover {
+  color: #FFA500;
+  cursor: pointer;
+}
