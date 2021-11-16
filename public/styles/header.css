@@ -1,9 +1,9 @@
-header {
-  height: 400px;
+#profile {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 400px;
   background-color: #e3f988;
   background-image: url("https://www.transparenttextures.com/patterns/p4.png");
 }
