@@ -27,14 +27,11 @@
     <!-- new-tweet CSS -->
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
+    <!-- old-tweet CSS -->
+    <link rel="stylesheet" href="/styles/old-tweet.css" type="text/css" />
+
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
-
-    <!-- Composer character counter JS -->
-    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
 
   <body>
@@ -43,11 +40,11 @@
       <span>tweeter</span>
       <div class="nav-write-tweet">
         <p><strong>Write</strong> a new tweet</p>
-      <i class="fas fa-angle-double-down angle-double"></i>
+        <i class="fas fa-angle-double-down angle-double"></i>
       </div>
     </nav>
 
-    <header>
+    <header id="profile">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -71,6 +68,32 @@
         </form>
       </section>
       
+      <section id="old-tweets">
+        <article class="single-tweet">
+          <header>
+            <div class="user">
+              <img src="/images/profile-hex.png" style="max-width: 80px">
+              <span>Newton</span>
+            </div>
+            <span class="handle">@SirIsaac</span>
+          </header>
+          <p class="show-tweet">If I have seen further it is by standing on the shoulders of giants</p>
+          <footer>
+            <span class="days-since">10 days ago</span>
+            <div class="tweet-icons">
+              <i class="fas fa-flag icon"></i>
+              <i class="fas fa-retweet icon"></i>
+              <i class="fas fa-heart icon"></i>
+            </div>
+          </footer>
+        </article>
+      </section>
     </main>
+
+    <!-- App JS -->
+    <script type="text/javascript" src="/scripts/client.js"></script>
+
+    <!-- Composer character counter JS -->
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </body>
 </html>
