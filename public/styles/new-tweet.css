@@ -20,6 +20,10 @@ form {
   font-family: 'Bungee', sans-serif;
 }
 
+.exceed {
+  color: #FF0000;
+}
+
 button {
   color: #FFFFFF;
   font-family: 'Bungee', sans-serif;
