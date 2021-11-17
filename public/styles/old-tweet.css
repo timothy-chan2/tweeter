@@ -1,4 +1,4 @@
-.single-tweet, header, .user, .handle, footer {
+.single-tweet, header, .handle, footer {
   display: flex;
 }
 
@@ -19,6 +19,8 @@ header {
 }
 
 .user {
+  display: inline-flex;
+  gap: 10px;
   align-items: center;
   font-size: 1.2em;
 }
