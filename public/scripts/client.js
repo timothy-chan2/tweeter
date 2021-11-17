@@ -54,9 +54,11 @@ $(document).ready(function() {
   };
 
   const renderTweets = (tweets) => {
+    const container = $('#tweets-container');
+    container.empty(); // Make sure the element with with id="tweets-container" has no text inside it
     for (let tweetData of tweets) {
       const $tweet = createTweetElement(tweetData);
-      $('#tweets-container').append($tweet); // to add it to the page by appending it inside element with id="tweets-container"
+      container.append($tweet); // to add it to the page by appending it inside element with id="tweets-container"
     }
   };
 
