@@ -12,6 +12,10 @@
   padding: 0.8em 0.5em 0.8em 0.5em;
 }
 
+.single-tweet:hover {
+  box-shadow: 8px 8px #a2a9c9;
+}
+
 header {
   flex-direction: row;
   justify-content: space-between;
@@ -56,10 +60,6 @@ footer {
   gap: 15px;
   font-size: 0.8em;
   color: #4056A1;
-}
-
-.single-tweet:hover {
-  box-shadow: 8px 8px #a2a9c9;
 }
 
 .icon:hover {

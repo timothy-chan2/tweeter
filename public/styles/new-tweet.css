@@ -32,13 +32,13 @@ button {
   padding: 0.2em 0.5em 0.2em 0.5em;
 }
 
+button:hover {
+  background-color: #5e6c9c;
+  cursor: pointer;
+}
+
 form > div {
   display: flex;
   justify-content: space-between;
   padding: 1.1em 0 1.1em 0;
-}
-
-button:hover {
-  background-color: #5e6c9c;
-  cursor: pointer;
 }
