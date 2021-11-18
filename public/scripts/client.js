@@ -29,9 +29,10 @@ $(document).ready(function() {
   };
 
   const renderTweets = (tweets) => {
+    const revTweets = tweets.reverse();
     const container = $('#tweets-container');
     container.empty(); // Make sure the element with with id="tweets-container" has no text inside it
-    for (let tweetData of tweets) {
+    for (let tweetData of revTweets) {
       const $tweet = createTweetElement(tweetData);
       container.append($tweet); // to add it to the page by appending it inside element with id="tweets-container"
     }
