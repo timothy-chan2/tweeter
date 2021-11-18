@@ -56,19 +56,27 @@ $(document).ready(function() {
     event.preventDefault(); // To prevent the default form submission behaviour
   });
 
-  $('#submit-tweet').on('click', () => {
-    const str = $('form').serialize(); // Turns a set of form data into a query string
-    $.ajax({
-      method: 'POST',
-      url: '/tweets',
-      data: str,
-      success: function(data) {
-        console.log('Data returned: ', data);
-      },
-      error: function(err) {
-        console.log(err);
-      }
-    });
+  $('#submit-tweet').on('click', function() {
+    const len = $(this).parent().prev().val().length;
+    if (len === 0 || len === null) {
+      alert('Tweet content is not present!');
+    } else if (140 - len < 0) {
+      alert('Tweet content is too long!');
+    } else {
+      const str = $('form').serialize(); // Turns a set of form data into a query string
+      $.ajax({
+        method: 'POST',
+        url: '/tweets',
+        data: str,
+        success: function(data) {
+          console.log('Data returned: ', data);
+        },
+        error: function(err) {
+          console.log(err);
+        }
+      });
+      $('#tweet-text').val(''); // Successfully submitted messages are deleted from textarea
+    }
   });
 
 });
