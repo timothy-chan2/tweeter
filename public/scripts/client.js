@@ -70,12 +70,13 @@ $(document).ready(function() {
         data: str,
         success: function(data) {
           console.log('Data returned: ', data);
+          $('#tweet-text').val(''); // Successfully submitted messages are deleted from textarea
         },
         error: function(err) {
           console.log(err);
         }
       });
-      $('#tweet-text').val(''); // Successfully submitted messages are deleted from textarea
+      
     }
   });
 
