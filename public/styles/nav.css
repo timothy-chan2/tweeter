@@ -10,6 +10,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
+  box-shadow: 0 2px rgba(39, 33, 33, 0.3);
 }
 
 .nav-write-tweet {
