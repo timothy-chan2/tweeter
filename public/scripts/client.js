@@ -6,11 +6,11 @@
 
 $(document).ready(function() {
   // Use to prevent cross-site scripting
-  const escape = function (puts) {
+  const escape = function(puts) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(puts));
     return div.innerHTML;
-  };  
+  };
   
   const createTweetElement = (tweet) => {
     return `
@@ -66,7 +66,6 @@ $(document).ready(function() {
 
   $('#submit-tweet').on('click', function() {
     const len = $(this).parent().prev().val().length;
-    const val = $(this).parent().prev().val();
     if (len === 0 || len === null) {
       alert('Tweet content is not present!');
     } else if (140 - len < 0) {
