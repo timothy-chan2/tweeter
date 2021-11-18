@@ -5,6 +5,8 @@
  */
 
 $(document).ready(function() {
+  let alertVisible = false;
+
   // Use to prevent cross-site scripting
   const escape = function(puts) {
     let div = document.createElement("div");
@@ -36,12 +38,11 @@ $(document).ready(function() {
   };
 
   const renderTweets = (tweets) => {
-    const revTweets = tweets.reverse();
     const container = $('#tweets-container');
     container.empty(); // Make sure the element with with id="tweets-container" has no text inside it
-    for (let tweetData of revTweets) {
+    for (let tweetData of tweets) {
       const $tweet = createTweetElement(tweetData);
-      container.append($tweet); // to add it to the page by appending it inside element with id="tweets-container"
+      container.prepend($tweet); // to add it to the page by prepending it inside element with id="tweets-container"
     }
   };
 
@@ -65,11 +66,25 @@ $(document).ready(function() {
   });
 
   $('#submit-tweet').on('click', function() {
+    // Slide error message up before validating again
+    if (alertVisible === true) {
+      $('#alert-msg')
+        .empty()
+        .slideUp();
+      alertVisible = false;
+    }
+    
     const len = $(this).parent().prev().val().length;
     if (len === 0 || len === null) {
-      alert('Tweet content is not present!');
+      $('#alert-msg')
+        .append('<i class="fas fa-skull-crossbones"></i> Tweet content is empty! <i class="fas fa-skull-crossbones"></i>')
+        .slideDown();
+      alertVisible = true;
     } else if (140 - len < 0) {
-      alert('Tweet content is too long!');
+      $('#alert-msg')
+        .append('<i class="fas fa-skull-crossbones"></i> Tweet content exceeds 140 characters! <i class="fas fa-skull-crossbones"></i>')
+        .slideDown();
+      alertVisible = true;
     } else {
       const str = $('form').serialize(); // Turns a set of form data into a query string
       $.ajax({
