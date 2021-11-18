@@ -5,17 +5,24 @@
  */
 
 $(document).ready(function() {
+  // Use to prevent cross-site scripting
+  const escape = function (puts) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(puts));
+    return div.innerHTML;
+  };  
+  
   const createTweetElement = (tweet) => {
     return `
       <article class="single-tweet">
         <header>
           <div class="user">
-            <img src=${tweet.user.avatars}>
-            <span>${tweet.user.name}</span>
+            <img src=${escape(tweet.user.avatars)}>
+            <span>${escape(tweet.user.name)}</span>
           </div>
-          <span class="handle">${tweet.user.handle}</span>
+          <span class="handle">${escape(tweet.user.handle)}</span>
         </header>
-        <p class="show-tweet">${tweet.content.text}</p>
+        <p class="show-tweet">${escape(tweet.content.text)}</p>
         <footer>
           <span class="days-since">${timeago.format(tweet.created_at)}</span>
           <div class="tweet-icons">
@@ -59,6 +66,7 @@ $(document).ready(function() {
 
   $('#submit-tweet').on('click', function() {
     const len = $(this).parent().prev().val().length;
+    const val = $(this).parent().prev().val();
     if (len === 0 || len === null) {
       alert('Tweet content is not present!');
     } else if (140 - len < 0) {
