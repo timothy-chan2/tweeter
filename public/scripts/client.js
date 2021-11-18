@@ -71,13 +71,12 @@ $(document).ready(function() {
         success: function(data) {
           console.log('Data returned: ', data);
           $('#tweet-text').val(''); // Successfully submitted messages are deleted from textarea
+          loadTweets();
         },
         error: function(err) {
           console.log(err);
         }
       });
-      
     }
   });
-
 });
