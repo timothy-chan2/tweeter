@@ -77,12 +77,12 @@ $(document).ready(function() {
     const len = $(this).parent().prev().val().length;
     if (len === 0 || len === null) {
       $('#alert-msg')
-        .append('<i class="fas fa-skull-crossbones"></i> Tweet content is empty! <i class="fas fa-skull-crossbones"></i>')
+        .append('<i class="fas fa-skull-crossbones"></i> Red alert: Tweet content is empty! <i class="fas fa-skull-crossbones"></i>')
         .slideDown();
       alertVisible = true;
     } else if (140 - len < 0) {
       $('#alert-msg')
-        .append('<i class="fas fa-skull-crossbones"></i> Tweet content exceeds 140 characters! <i class="fas fa-skull-crossbones"></i>')
+        .append('<i class="fas fa-skull-crossbones"></i> Red alert: Tweet content exceeds 140 characters! <i class="fas fa-skull-crossbones"></i>')
         .slideDown();
       alertVisible = true;
     } else {
