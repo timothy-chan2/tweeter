@@ -1,7 +1,7 @@
 #alert-msg {
   font-size: 1.2em;
   font-weight: bold;
-  color: #FF0000;
+  color: #DB0000;
 }
 
 form {
@@ -27,7 +27,7 @@ form {
 }
 
 .exceed {
-  color: #FF0000;
+  color: #DB0000;
 }
 
 button {

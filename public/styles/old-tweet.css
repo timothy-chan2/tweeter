@@ -9,19 +9,22 @@
 .single-tweet {
   flex-direction: column;
   border: solid 4px;
-  padding: 0.8em 0.5em 0.8em 0.5em;
+  padding: 0 0 0.8em 0;
   margin: 2em 0 2em 0;
-  border-radius: 20px;
+  border-radius: 60px 20px;
 }
 
 .single-tweet:hover {
   box-shadow: 8px 8px #a2a9c9;
 }
 
-header {
+.tweet-header {
   flex-direction: row;
   justify-content: space-between;
-  padding: 0 1em 0 0.8em;
+  padding: 0.8em 1em 0.8em 0.8em;
+  background-color: #E3F988;
+  background-image: url("https://www.transparenttextures.com/patterns/p4.png");
+  border-radius: 55px 15px 0 0;
 }
 
 .user {
@@ -50,6 +53,7 @@ footer {
   align-items: center;
   border-top: solid 4px;
   padding: 0.5em 1em 0 0.8em;
+  margin: 0 0.5em 0 0.5em;
 }
 
 .days-since {
@@ -65,6 +69,6 @@ footer {
 }
 
 .icon:hover {
-  color: #FFA500;
+  color: #707000;
   cursor: pointer;
 }

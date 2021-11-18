@@ -17,7 +17,7 @@ $(document).ready(function() {
   const createTweetElement = (tweet) => {
     return `
       <article class="single-tweet">
-        <header>
+        <header class="tweet-header">
           <div class="user">
             <img src=${escape(tweet.user.avatars)}>
             <span>${escape(tweet.user.name)}</span>
