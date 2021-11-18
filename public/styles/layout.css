@@ -17,7 +17,7 @@ html {
 body {
   color: #545149;
   background-color: #f4f1ec;
-  font-size: 24px;
+  font-size: 16px;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
@@ -33,4 +33,21 @@ body {
  main {
    width: 90%;
    margin: auto;
+ }
+
+ @media screen and (min-width: 768px) {
+  body {
+    font-size: 24px;
+  } 
+ }
+
+ @media screen and (min-width: 1024px) {
+  #tweet-new-old {
+     display: flex;
+   }
+
+   main {
+    min-width: 42%;
+    margin: 120px 50px 0 50px;
+  }
  }
