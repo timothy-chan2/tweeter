@@ -94,8 +94,7 @@ $(document).ready(function() {
         success: function(data) {
           console.log('Data returned: ', data);
           $('#tweet-text').val(''); // Successfully submitted messages are deleted from textarea
-          const count = 140 - $("#tweet-text").val().length;
-          $("#submit-tweet").next().text(count); // Update the counter
+          $("#submit-tweet").next().text(140); // Update the counter to 140 since textarea is now empty
           loadTweets();
         },
         error: function(err) {
