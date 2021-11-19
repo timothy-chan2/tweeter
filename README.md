@@ -14,6 +14,8 @@ The main focus of this project is to practice my HTML5, CSS3, Sass, JS, jQuery a
 
 !["screenshot of newly posted tweet"](https://github.com/timothy-chan2/tweeter/blob/master/docs/posted-tweet.png?raw=true)
 
+!["screenshot of alert message"](https://github.com/timothy-chan2/tweeter/blob/master/docs/alert-message.png?raw=true)
+
 ## Getting Started
 
 1. Fork the repository to your GitHub account.
