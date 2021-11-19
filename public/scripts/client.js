@@ -76,7 +76,7 @@ $(document).ready(function() {
         alertVisible = false;
       }
       
-      // Find the length of string in textarea
+      // Find the length of string in form textarea
       const len = $(this).parent().prev().val().length;
       if (len === 0 || len === null) {
         $('#alert-msg')
