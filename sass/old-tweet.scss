@@ -1,0 +1,80 @@
+@use 'partial';
+
+.single-tweet, header, .handle, footer {
+  display: flex;
+}
+
+#tweets-container {
+  padding: 0;
+}
+
+.single-tweet {
+  flex-direction: column;
+  border: solid 4px;
+  padding: 0 0 0.8em 0;
+  margin: 2em 0 2em 0;
+  border-radius: 60px 20px;
+}
+
+.single-tweet:hover {
+  box-shadow: 8px 8px partial.$color-lightblue;
+}
+
+.tweet-header {
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.8em 1em 0.8em 0.8em;
+  background-color: partial.$color-lightgreen;
+  background-image: url("https://www.transparenttextures.com/patterns/p4.png");
+  border-radius: 55px 15px 0 0;
+}
+
+.user {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 1.2em;
+}
+
+.handle {
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: partial.$color-blue;
+}
+
+.show-tweet {
+  padding: 1em;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+footer {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-top: solid 4px;
+  padding: 0.5em 1em 0 0.8em;
+  margin: 0 0.5em 0 0.5em;
+}
+
+.days-since {
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.tweet-icons {
+  display: inline-flex;
+  gap: 15px;
+  font-size: 0.8em;
+  color: partial.$color-blue;
+}
+
+.icon {
+  font-size: 1.2rem;
+}
+
+.icon:hover {
+  color: partial.$color-purple;
+  cursor: pointer;
+}

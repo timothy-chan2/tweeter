@@ -1,0 +1,56 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+
+ @use 'partial';
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+
+body {
+  color: partial.$color-darkgrey;
+  background-color: partial.$color-nearwhite;
+  font-size: 16px;
+  font-family: partial.$font-primary;
+}
+
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+
+ nav > span {
+  font-family: partial.$font-app;
+  font-size: 1.8em;
+ }
+
+ main {
+   width: 90%;
+   margin: auto;
+ }
+
+ @media screen and (min-width: 768px) {
+  body {
+    font-size: 24px;
+  } 
+ }
+
+ @media screen and (min-width: 1024px) {
+  #tweet-new-old {
+     display: flex;
+   }
+
+   main {
+    min-width: 42%;
+    margin: 120px 50px 0 50px;
+  }
+ }

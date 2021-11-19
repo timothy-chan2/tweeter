@@ -1,0 +1,53 @@
+@use 'partial';
+
+#alert-msg {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: partial.$color-red;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+#tweet-text {
+  background-color: partial.$color-nearwhite;
+  margin: 0.5em 0 0 0;
+  border: none;
+  border-bottom: solid 4px partial.$color-darkgrey;
+  resize: none;
+  height: 1.4em;
+  overflow: hidden;
+}
+
+.counter {
+  font-family: partial.$font-app;
+}
+
+.exceed {
+  color: partial.$color-red;
+}
+
+button {
+  justify-content: space-between;
+  color: partial.$color-white;
+  font-family: partial.$font-app;
+  background-color: partial.$color-blue;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-radius: 8px;
+}
+
+button:hover {
+  background-color: partial.$color-purple;
+  cursor: pointer;
+}
+
+form > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.1em 0 1.1em 0;
+}

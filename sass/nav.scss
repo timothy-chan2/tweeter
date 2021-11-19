@@ -1,0 +1,43 @@
+@use 'partial';
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 120px;
+  color: partial.$color-white;
+  background-color: partial.$color-blue;
+  padding: 0.8em 1.5em 0.8em 1.5em;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 2px partial.$color-shadow;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    i {
+      color: partial.$color-yellow;
+      font-size: 0.8em;
+      animation-name: floating;
+      animation-duration: 1.5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+  }
+}
+
+/*@keyframes floating {
+  from { transform: translate(0,  0px); }
+  65%  { transform: translate(0, 5px); }
+  to   { transform: translate(0, -0px); }    
+}*/
