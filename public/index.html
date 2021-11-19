@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8">
+
     <!-- Disable viewport zooming -->
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
-    <!-- Meta Information -->
+    <!-- Title shown on browser tab -->
     <title>Tweeter - Home Page</title>
 
     <!-- Google fonts -->
@@ -18,7 +20,7 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
 
-    <!-- App CSS -->
+    <!-- layout CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
     <!-- nav CSS -->
@@ -33,7 +35,7 @@
     <!-- old-tweet CSS -->
     <link rel="stylesheet" href="/styles/old-tweet.css" type="text/css" />
 
-    <!-- External JS -->
+    <!-- Link to jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     
     <!-- timeago to displaying the time passed since a date -->
@@ -63,13 +65,15 @@
 
       <!-- Page-specific (main) content here -->
       <main class="container">
+        <!-- Container for the compose tweet form -->
         <section class="new-tweet"></section>
         
+        <!-- Container to display previously submitted tweets -->
         <section id="tweets-container"></section>
       </main>
     </div>
 
-    <!-- App JS -->
+    <!-- Client JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
 
     <!-- Composer character counter JS -->

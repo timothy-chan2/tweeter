@@ -43,7 +43,7 @@ $(document).ready(function() {
     container.empty(); // Make sure the element with with id="tweets-container" has no text inside it
     for (let tweetData of tweets) {
       const $tweet = createTweetElement(tweetData);
-      container.prepend($tweet); // to add it to the page by prepending it inside element with id="tweets-container"
+      container.prepend($tweet); // To add it to the page by prepending it inside element with id="tweets-container"
     }
   };
 
@@ -76,6 +76,7 @@ $(document).ready(function() {
         alertVisible = false;
       }
       
+      // Find the length of string in textarea
       const len = $(this).parent().prev().val().length;
       if (len === 0 || len === null) {
         $('#alert-msg')
@@ -107,7 +108,7 @@ $(document).ready(function() {
     });
   };
 
-  const composeTweet = `
+  const createComposeTweet = `
     <h2>Compose Tweet</h2>
     <p id="alert-msg"></p>
     <form method="POST" action="/tweets/">
@@ -129,10 +130,11 @@ $(document).ready(function() {
       composeVisible = false;
     } else {
       $('.new-tweet')
-        .append(composeTweet)
+        .append(createComposeTweet)
         .slideDown();
       $('#tweet-text').focus();
       composeVisible = true;
+      // React to Tweet button being clicked
       asyncSubmit();
     }
   });
