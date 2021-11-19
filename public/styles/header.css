@@ -14,7 +14,6 @@
     font-size: 0.85rem;
   }
 }
-
 @media screen and (min-width: 1024px) {
   #profile {
     min-width: 35%;

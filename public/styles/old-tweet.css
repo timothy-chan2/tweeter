@@ -22,7 +22,7 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 0.8em 1em 0.8em 0.8em;
-  background-color: #E3F988;
+  background-color: #e3f988;
   background-image: url("https://www.transparenttextures.com/patterns/p4.png");
   border-radius: 55px 15px 0 0;
 }
@@ -73,6 +73,6 @@ footer {
 }
 
 .icon:hover {
-  color: #707000;
+  color: #800080;
   cursor: pointer;
 }
