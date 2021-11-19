@@ -21,8 +21,15 @@ nav {
     align-items: center;
     font-size: 1.2em;
 
-    p {
+    button {
+      /* Remove default button styles */
+      all: unset;
       margin-bottom: 0;
+    }
+
+    button:hover {
+      /* Remove default button hover styles */
+      background-color: unset;
     }
 
     i {

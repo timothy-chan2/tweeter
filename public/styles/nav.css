@@ -19,8 +19,14 @@ nav div {
   align-items: center;
   font-size: 1.2em;
 }
-nav div p {
+nav div button {
+  /* Remove default button styles */
+  all: unset;
   margin-bottom: 0;
+}
+nav div button:hover {
+  /* Remove default button hover styles */
+  background-color: unset;
 }
 nav div i {
   color: #ffff00;

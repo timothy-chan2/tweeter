@@ -6,6 +6,19 @@
 
 $(document).ready(function() {
   let alertVisible = false;
+  let composeVisible = false;
+
+  // To show or hide the compose tweet section
+  $('#compose-tweet').on('click', function() {
+    if (composeVisible === true) {
+      $('.new-tweet').slideUp();
+      composeVisible = false;
+    } else {
+      $('.new-tweet').slideDown();
+      $('#tweet-text').focus();
+      composeVisible = true;
+    }
+  });
 
   // Use to prevent cross-site scripting
   const escape = function(puts) {
