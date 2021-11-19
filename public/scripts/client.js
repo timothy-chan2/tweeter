@@ -8,18 +8,6 @@ $(document).ready(function() {
   let alertVisible = false;
   let composeVisible = false;
 
-  // To show or hide the compose tweet section
-  $('#compose-tweet').on('click', function() {
-    if (composeVisible === true) {
-      $('.new-tweet').slideUp();
-      composeVisible = false;
-    } else {
-      $('.new-tweet').slideDown();
-      $('#tweet-text').focus();
-      composeVisible = true;
-    }
-  });
-
   // Use to prevent cross-site scripting
   const escape = function(puts) {
     let div = document.createElement("div");
@@ -74,46 +62,78 @@ $(document).ready(function() {
 
   loadTweets();
 
-  $('form').submit((event) => {
-    event.preventDefault(); // To prevent the default form submission behaviour
-  });
+  const asyncSubmit = () => {
+    $('form').submit((event) => {
+      event.preventDefault(); // To prevent the default form submission behaviour
+    });
+  
+    $('#submit-tweet').on('click', function() {
+      // Slide error message up before validating again
+      if (alertVisible === true) {
+        $('#alert-msg')
+          .empty()
+          .slideUp();
+        alertVisible = false;
+      }
+      
+      const len = $(this).parent().prev().val().length;
+      if (len === 0 || len === null) {
+        $('#alert-msg')
+          .append('<i class="fas fa-skull-crossbones"></i> Red alert: Tweet content is empty! <i class="fas fa-skull-crossbones"></i>')
+          .slideDown();
+        alertVisible = true;
+      } else if (140 - len < 0) {
+        $('#alert-msg')
+          .append('<i class="fas fa-skull-crossbones"></i> Red alert: Tweet content exceeds 140 characters! <i class="fas fa-skull-crossbones"></i>')
+          .slideDown();
+        alertVisible = true;
+      } else {
+        const str = $('form').serialize(); // Turns a set of form data into a query string
+        $.ajax({
+          method: 'POST',
+          url: '/tweets',
+          data: str,
+          success: function(data) {
+            console.log('Data returned: ', data);
+            $('#tweet-text').val(''); // Successfully submitted messages are deleted from textarea
+            $("#submit-tweet").next().text(140); // Update the counter to 140 since textarea is now empty
+            loadTweets();
+          },
+          error: function(err) {
+            console.log(err);
+          }
+        });
+      }
+    });
+  };
 
-  $('#submit-tweet').on('click', function() {
-    // Slide error message up before validating again
-    if (alertVisible === true) {
-      $('#alert-msg')
-        .empty()
-        .slideUp();
-      alertVisible = false;
-    }
-    
-    const len = $(this).parent().prev().val().length;
-    if (len === 0 || len === null) {
-      $('#alert-msg')
-        .append('<i class="fas fa-skull-crossbones"></i> Red alert: Tweet content is empty! <i class="fas fa-skull-crossbones"></i>')
-        .slideDown();
-      alertVisible = true;
-    } else if (140 - len < 0) {
-      $('#alert-msg')
-        .append('<i class="fas fa-skull-crossbones"></i> Red alert: Tweet content exceeds 140 characters! <i class="fas fa-skull-crossbones"></i>')
-        .slideDown();
-      alertVisible = true;
+  const composeTweet = `
+    <h2>Compose Tweet</h2>
+    <p id="alert-msg"></p>
+    <form method="POST" action="/tweets/">
+      <label for="tweet-text">What are you humming about?</label>
+      <textarea name="text" id="tweet-text"></textarea>
+      <div>
+        <button id="submit-tweet" type="submit">Tweet</button>
+        <output name="counter" class="counter" for="tweet-text">140</output>
+      </div>
+    </form>
+  `;
+
+  // To show or hide the compose tweet section
+  $('#compose-tweet').on('click', function() {
+    if (composeVisible === true) {
+      $('.new-tweet')
+        .slideUp()
+        .empty();
+      composeVisible = false;
     } else {
-      const str = $('form').serialize(); // Turns a set of form data into a query string
-      $.ajax({
-        method: 'POST',
-        url: '/tweets',
-        data: str,
-        success: function(data) {
-          console.log('Data returned: ', data);
-          $('#tweet-text').val(''); // Successfully submitted messages are deleted from textarea
-          $("#submit-tweet").next().text(140); // Update the counter to 140 since textarea is now empty
-          loadTweets();
-        },
-        error: function(err) {
-          console.log(err);
-        }
-      });
+      $('.new-tweet')
+        .append(composeTweet)
+        .slideDown();
+      $('#tweet-text').focus();
+      composeVisible = true;
+      asyncSubmit();
     }
   });
 });
